@@ -99,15 +99,20 @@ function drawPatterns(percent: number) {
 }
 
 var start: number;
+var last: number;
 const period = 10 * 1000; // ten seconds
 
 function step(ts: number) {
   if (!start) start = ts;
-  const progress = (ts - start) % period / period;
-  drawCircles(progress);
-  drawPatterns(progress);
-
-  window.requestAnimationFrame(step);
+  const progress = ts - start;
+  const perc = progress % period / period;
+  //const delay = last != null ? ts - last < 20 ? 20 - ts + last : 0 : 0;
+  //setTimeout(() => {
+    drawCircles(perc);
+    drawPatterns(perc);
+    last = ts;
+    window.requestAnimationFrame(step);
+  // }, delay);
 }
 
 window.requestAnimationFrame(step);
