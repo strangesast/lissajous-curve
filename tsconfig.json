@@ -3,6 +3,7 @@
     "outDir": "./dist/",
     "lib": [
       "dom",
+      "es6",
       "es2018"
     ],
     "noImplicitAny": true,
