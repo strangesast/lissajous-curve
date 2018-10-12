@@ -2,7 +2,8 @@
   "name": "lissajous-curve",
   "scripts": {
     "start": "./node_modules/.bin/webpack --config webpack.config.js",
-    "start:dev": "webpack-dev-server --host $(ip route get 1 | awk '{print $NF;exit}')",
+    "start:dev": "webpack-dev-server --config webpack.dev.js --host $(ip route get 1 | awk '{print $NF;exit}')",
+    "build": "webpack --config webpack.prod.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sam Zagrobelny <strangesast@gmail.com>",
@@ -12,7 +13,8 @@
     "typescript": "^3.1.3",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",
-    "webpack-dev-server": "^3.1.9"
+    "webpack-dev-server": "^3.1.9",
+    "webpack-merge": "^4.1.4"
   },
   "dependencies": {
     "@types/d3": "^5.0.0",
